@@ -5,6 +5,7 @@ import { ContributorSection } from "@/features/contributorSection/components/Con
 import { Button } from "@/components/ui/button";
 import { getSession } from "@/utils/CacheSession";
 import { Footer } from "@/components/footer/Footer";
+import { PostEnVedette } from "@/features/postEnVedette/components/PostEnVedette";
 
 export default async function Home() {
   const session = await getSession();
@@ -20,6 +21,12 @@ export default async function Home() {
         <Button variant="default" className="rounded-md">S'abonner</Button>
       </div>
     </div>
+
+    <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center my-10">
+      <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Post En Vedette</h2>
+      <div className="absolute top-0 right-0 w-full h-[60px] z-10 rounded-2xl bg-black translate-x-1 translate-y-1 duration-75"></div>
+    </div>
+    <PostEnVedette />
     
     <div className="flex items-center justify-between">
       <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center group">
