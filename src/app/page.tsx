@@ -2,7 +2,6 @@ import { AdminPostSection } from "@/features/adminSection/components/AdminPostSe
 import { ApprovedContributorSection } from "@/features/approvedContributorSection/components/ApprovedContributorSection";
 import { ButtonCreatePost } from "@/features/contributorSection/components/ButtonCreatePost";
 import { ContributorSection } from "@/features/contributorSection/components/ContributorSection";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getSession } from "@/utils/CacheSession";
 import { Footer } from "@/components/footer/Footer";
@@ -12,8 +11,13 @@ export default async function Home() {
 
   return (
   <div className="mx-14 max-md:mx-2">
-    <div className="mt-5 border-t border-b py-4 mb-10 border-gray-700">
-      <h1 className="text-4xl md:text-6xl lg:text-8xl xl:text-[350px] font-extrabold text-center">THE BLOG</h1>
+    <div className="flex items-center justify-center flex-col my-10 gap-5">
+      <h2 className="text-4xl font-bold uppercase">Un Blog qui Partage Mes Projets et mon évolution</h2> 
+      <p className="text-gray-300">Vous pouvez vous abonner afin de suivre ma progression ou sinon vous pouvez tout simplement contribuer à ce blog.</p>
+      <div className="flex items-center border border-gray-700 rounded-lg p-1 px-5 justify-between w-[600px] max-md:w-full gap-3">
+        <input type="email" placeholder="Email" className="bg-inherit outline-none w-full" />
+        <Button variant="outline" className="rounded-md text-black">S'abonner</Button>
+      </div>
     </div>
     
     <h2 className="text-2xl font-bold my-5">Admin Post</h2>
@@ -33,19 +37,7 @@ export default async function Home() {
       {session ? <ButtonCreatePost /> : null}
     </div>
     <ContributorSection />
-
-    <section className="max-w-[80%] mx-auto max-md:flex-col flex items-center justify-around my-20 bg-[#1a1a1d] p-10 rounded-md">
-      <div className="flex flex-col gap-2 w-[450px] max-md:w-full">
-        <h2 className="text-2xl font-bold">Rejoins ma newsletter</h2>
-        <p className="text-gray-500">Rejoins ma newsletter pour ne rien manquer des nouveaux posts avenir <span className="text-red-300">(je ne spammerais pas promis)</span></p>
-      </div>
-
-      <div className="w-[550px] max-md:w-full flex items-center gap-2 max-md:mt-10">
-        <Input type="email" placeholder="Email" className="rounded-md bg-inherit border-gray-700" />
-        <Button variant="outline" className="rounded-md text-black">S'abonner</Button>
-      </div>
-    </section>
-
+    
     <Footer />
   </div>
   );
