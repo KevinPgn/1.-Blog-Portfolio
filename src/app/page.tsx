@@ -2,6 +2,8 @@ import { AdminPostSection } from "@/features/adminSection/components/AdminPostSe
 import { ApprovedContributorSection } from "@/features/approvedContributorSection/components/ApprovedContributorSection";
 import { ButtonCreatePost } from "@/features/contributorSection/components/ButtonCreatePost";
 import { ContributorSection } from "@/features/contributorSection/components/ContributorSection";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -21,6 +23,18 @@ export default function Home() {
       <ButtonCreatePost />
     </div>
     <ContributorSection />
+
+    <section className="w-[1400px] mx-auto flex items-center justify-around my-20 bg-[#1a1a1d] p-10 rounded-md">
+      <div className="flex flex-col gap-2 w-[450px]">
+        <h2 className="text-2xl font-bold">Rejoins ma newsletter</h2>
+        <p className="text-gray-500">Rejoins ma newsletter pour ne rien manquer de mes prochaines posts et de mon évolution !</p>
+      </div>
+
+      <div className="w-[550px] flex items-center gap-2">
+        <Input type="email" placeholder="Email" className="rounded-md bg-inherit border-gray-700" />
+        <Button variant="outline" className="rounded-md text-black">S'abonner</Button>
+      </div>
+    </section>
   </div>
   );
 }
