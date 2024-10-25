@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const ApprovedContributorSection = () => {
   return <section className="max-md:px-2 flex max-2xl:justify-center items-center gap-14 flex-wrap my-20">
     
@@ -5,7 +7,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-5.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
@@ -17,7 +19,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-6.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
@@ -29,7 +31,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-7.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
@@ -41,7 +43,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-8.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
@@ -53,7 +55,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-3.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
@@ -65,7 +67,7 @@ export const ApprovedContributorSection = () => {
       <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
         <span className="text-red-500 text-md uppercase font-semibold">Category</span>
       </div>
-      <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
+      <Image src="/photo-4.jpg" alt="Placeholder Image" width={1000} height={1000} className="w-full h-[270px] bg-[#1a1a1d] rounded-md object-cover"></Image>
       <div className="flex items-center gap-2">
         <span className="text-gray-700 text-sm">October 25, 2024</span>
       </div>
