@@ -2,6 +2,7 @@ import Link from "next/link";
 import Links from "./Links";
 import { UserProps } from "@/lib/types";
 import { getSession } from "@/utils/CacheSession";
+import { ConnexionAndSocial } from "./ConnexionAndSocial";
 
 export default async function Navbar() {
   const session = await getSession();
@@ -15,10 +16,7 @@ export default async function Navbar() {
             </Link>
             <Links userRole={user ? user.role : ''}/>
         </div>
-
-        <div>
-
-        </div>
+        <ConnexionAndSocial user={user ? user : null}/>
     </nav>
   </header>;
 }
