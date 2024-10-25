@@ -4,8 +4,11 @@ import { ButtonCreatePost } from "@/features/contributorSection/components/Butto
 import { ContributorSection } from "@/features/contributorSection/components/ContributorSection";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { getSession } from "@/utils/CacheSession";
 
-export default function Home() {
+export default async function Home() {
+  const session = await getSession();
+
   return (
   <div className="mx-14 max-md:mx-2">
     <div className="mt-5 border-t border-b py-4 mb-10 border-gray-700">
@@ -19,15 +22,21 @@ export default function Home() {
     <ApprovedContributorSection />
 
     <div className="flex items-center justify-between mt-20">
-      <h2 className="text-2xl font-bold my-5">Contributor</h2>
-      <ButtonCreatePost />
+      <div className="flex flex-col my-5">
+        <h2 className="text-2xl font-bold">Contributor</h2>
+        <span className="text-gray-400 text-sm">Si tu veux essayer de contribuer, tu peux créer un post et une fois ton post finit
+          l'Administrateur pourra le valider ou le refuser. <br /> <br />
+          <span className="text-red-300 text-sm underline">Ce système est pour prévenir les abus. Veuillez me pardonner</span>
+        </span>
+      </div>
+      {session ? <ButtonCreatePost /> : null}
     </div>
     <ContributorSection />
 
     <section className="w-[1400px] mx-auto flex items-center justify-around my-20 bg-[#1a1a1d] p-10 rounded-md">
       <div className="flex flex-col gap-2 w-[450px]">
         <h2 className="text-2xl font-bold">Rejoins ma newsletter</h2>
-        <p className="text-gray-500">Rejoins ma newsletter pour ne rien manquer de mes prochaines posts et de mon évolution !</p>
+        <p className="text-gray-500">Rejoins ma newsletter pour ne rien manquer des nouveaux posts avenir <span className="text-red-300">(je ne spammerais pas promis)</span></p>
       </div>
 
       <div className="w-[550px] flex items-center gap-2">
