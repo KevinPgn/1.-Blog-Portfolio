@@ -1,5 +1,5 @@
 export const AdminPostSection = () => {
-  return <section className="my-14 flex flex-col lg:flex-row items-start gap-5">
+  return <section className="my-14 flex flex-col lg:flex-row items-start gap-5 mb-20">
    <div className="w-full lg:w-[50%] flex flex-col gap-4 cursor-pointer hover:bg-[#1a1a1d] p-5 rounded-md duration-75">
         <div className="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-gray-800 rounded-lg"></div>
         <h2 className="text-xl sm:text-2xl font-bold">Placeholder Title</h2>
