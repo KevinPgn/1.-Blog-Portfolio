@@ -1,6 +1,6 @@
 export const ApprovedContributorSection = () => {
-  return <section className="max-md:px-0 flex items-center gap-10 flex-wrap my-5">
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full"> 
+  return <section className="max-md:px-0 flex items-center gap-2 flex-wrap my-5">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full"> 
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
@@ -11,7 +11,7 @@ export const ApprovedContributorSection = () => {
       <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full">
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
@@ -22,7 +22,7 @@ export const ApprovedContributorSection = () => {
       <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full">
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
@@ -33,7 +33,7 @@ export const ApprovedContributorSection = () => {
       <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full">
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
@@ -44,7 +44,7 @@ export const ApprovedContributorSection = () => {
       <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full">
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
@@ -55,7 +55,7 @@ export const ApprovedContributorSection = () => {
       <p className="text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
     </div>
 
-    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[30%] max-md:w-full">
+    <div className="flex flex-col gap-2 p-4 rounded-md hover:bg-[#efeff1] duration-75 cursor-pointer w-[23%] max-md:w-full">
       <div className="w-full h-[270px] bg-[#1a1a1d] rounded-md"></div>
       <div className="flex items-center gap-2">
         <span className="text-red-500 text-sm uppercase font-semibold">Category</span>
