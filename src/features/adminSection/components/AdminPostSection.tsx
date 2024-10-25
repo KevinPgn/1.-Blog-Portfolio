@@ -17,7 +17,7 @@ export const AdminPostSection = () => {
             </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 border-t border-gray-700 py-5 cursor-pointer hover:bg-[#1a1a1d] p-5 duration-75">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 py-5 cursor-pointer hover:bg-[#1a1a1d] p-5 duration-75">
             <div className="w-full sm:w-[250px] h-[150px] bg-gray-800 rounded-md"></div>
             <div className="flex flex-col gap-1">
                 <span className="text-gray-500 text-sm sm:text-base">October 25, 2024</span>
@@ -25,7 +25,7 @@ export const AdminPostSection = () => {
             </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 border-t border-gray-700 py-5 cursor-pointer hover:bg-[#1a1a1d] p-5 duration-75">
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-7 py-5 cursor-pointer hover:bg-[#1a1a1d] p-5 duration-75">
             <div className="w-full sm:w-[250px] h-[150px] bg-gray-800 rounded-md"></div>
             <div className="flex flex-col gap-1">
                 <span className="text-gray-500 text-sm sm:text-base">October 25, 2024</span>

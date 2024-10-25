@@ -10,7 +10,7 @@ export default async function Home() {
   const session = await getSession();
 
   return (
-  <div className="mx-14 max-md:mx-2">
+  <div className="max-w-[1600px] mx-auto">
 
     <div className="flex items-center text-center justify-center flex-col my-10 gap-5">
       <h2 className="text-4xl font-bold uppercase">Un Blog qui Partage Mes Projets et mon évolution</h2> 
@@ -21,7 +21,7 @@ export default async function Home() {
       </div>
     </div>
     
-    <h2 className="text-2xl font-bold my-5">Admin Post</h2>
+    <h2 className="text-2xl font-bold">Admin Post</h2>
     <AdminPostSection />
 
     <h2 className="text-2xl font-bold my-5">Approved Contributor</h2>
