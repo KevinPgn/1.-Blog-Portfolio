@@ -9,32 +9,6 @@ import { UserProps } from "@/lib/types"
 import { getSession } from "@/utils/CacheSession"
 import estimateReadingTime from "@/utils/estimatedReadingTime"
 
-/*
-model Post {
-  id        String @id @default(cuid())
-  title     String
-  slug      String @unique
-  description String?
-  content   String?
-  imageUrl     String?
-  category    String?
-  views       Int    @default(0)
-  minRead     Int    @default(0)
-
-  published Boolean @default(false)
-
-  comments    Comment[]
-
-  authorId  String
-  author    User   @relation(fields: [authorId], references: [id])
-
-  updatedAt DateTime @updatedAt
-  createdAt DateTime @default(now())
-
-  @@index([slug])
-}
-*/
-
 export const createPost = authenticatedAction
     .schema(z.object({
         title: z.string().min(1),
@@ -44,27 +18,53 @@ export const createPost = authenticatedAction
         category: z.string().optional(),
     }))
     .action(async ({ctx:{userId}, parsedInput:{title, content, imageUrl, description, category}}) => {
-        const session = await getSession()
-        const user = session?.user as UserProps
-        
-        const userIsAdmin = user.role === "admin"
-        const userIsContributor = user.role === "approved contributor"
-        const slug = generateSlug(title)
+        try {
+            const session = await getSession()
+            const user = session?.user as UserProps
+            
+            const userIsAdmin = user.role === "admin"
+            const userIsContributor = user.role === "approved contributor"
+            const slug = generateSlug(title)
 
-        const post = await prisma.post.create({
-            data: {
-                title, 
-                content, 
-                imageUrl, 
-                description, 
-                category, 
-                slug, 
-                authorId: userId,
-                published: userIsAdmin || userIsContributor,
-                minRead: estimateReadingTime(content)
+            // Vérification de l'existence du slug
+            const existingPost = await prisma.post.findUnique({ where: { slug } })
+            if (existingPost) {
+                throw new Error("Un article avec ce titre existe déjà")
             }
-        })
 
-        revalidatePath(`/blog/${post.slug}`)
-        return post
+            const post = await prisma.$transaction(async (tx) => {
+                const newPost = await tx.post.create({
+                    data: {
+                        title, 
+                        content, 
+                        imageUrl, 
+                        description, 
+                        category, 
+                        slug, 
+                        authorId: userId,
+                        published: userIsAdmin || userIsContributor,
+                        minRead: estimateReadingTime(content)
+                    }
+                })
+
+                if (userIsAdmin || userIsContributor) {
+                    await tx.user.update({
+                        where: { id: userId },
+                        data: { reputationScore: { increment: 5 } }
+                    })
+                }
+
+                return newPost
+            })
+
+            revalidatePath("/blog")
+            if (userIsAdmin || userIsContributor) {
+                revalidatePath(`/blog/${slug}`)
+            }
+
+            return { success: true, post }
+        } catch (error) {
+            console.error("Erreur lors de la création du post:", error)
+            return { success: false, error: error instanceof Error ? error.message : "Impossible de créer l'article" }
+        }
     })
