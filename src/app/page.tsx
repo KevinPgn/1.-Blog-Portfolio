@@ -5,6 +5,7 @@ import { ContributorSection } from "@/features/contributorSection/components/Con
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { getSession } from "@/utils/CacheSession";
+import { Footer } from "@/components/footer/Footer";
 
 export default async function Home() {
   const session = await getSession();
@@ -44,6 +45,8 @@ export default async function Home() {
         <Button variant="outline" className="rounded-md text-black">S'abonner</Button>
       </div>
     </section>
+
+    <Footer />
   </div>
   );
 }
