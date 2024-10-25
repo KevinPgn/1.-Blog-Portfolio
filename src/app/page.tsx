@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { getSession } from "@/utils/CacheSession";
 import { Footer } from "@/components/footer/Footer";
 import { PostEnVedette } from "@/features/postEnVedette/components/PostEnVedette";
+import { CategoryList } from "@/components/CategoryList";
 
 export default async function Home() {
   const session = await getSession();
@@ -53,6 +54,7 @@ export default async function Home() {
       <Button variant="default" className="rounded-md">Voir plus</Button>
     </div>
     </div>
+    <CategoryList />
     <ContributorSection />
     
     <Footer />
