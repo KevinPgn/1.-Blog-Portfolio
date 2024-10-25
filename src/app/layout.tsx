@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
-import { ThemeProvider } from "@/components/ui/theme-provider";
+import Navbar from "@/components/navbar/Navbar";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,17 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={cn("bg-[#101011] text-white ", inter.className)}>
           <SessionProvider>
+            <Navbar />
             {children}
           </SessionProvider>
-        </ThemeProvider>
       </body>
     </html>
   );
