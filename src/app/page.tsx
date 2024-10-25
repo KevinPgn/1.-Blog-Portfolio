@@ -1,5 +1,7 @@
 import { AdminPostSection } from "@/features/adminSection/components/AdminPostSection";
 import { ApprovedContributorSection } from "@/features/approvedContributorSection/components/ApprovedContributorSection";
+import { ButtonCreatePost } from "@/features/contributorSection/components/ButtonCreatePost";
+import { ContributorSection } from "@/features/contributorSection/components/ContributorSection";
 
 export default function Home() {
   return (
@@ -13,6 +15,12 @@ export default function Home() {
 
     <h2 className="text-2xl font-bold my-5">Approved Contributor</h2>
     <ApprovedContributorSection />
+
+    <div className="flex items-center justify-between mt-20">
+      <h2 className="text-2xl font-bold my-5">Contributor</h2>
+      <ButtonCreatePost />
+    </div>
+    <ContributorSection />
   </div>
   );
 }
