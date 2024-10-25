@@ -11,7 +11,8 @@ export default async function Home() {
 
   return (
   <div className="mx-14 max-md:mx-2">
-    <div className="flex items-center justify-center flex-col my-10 gap-5">
+
+    <div className="flex items-center text-center justify-center flex-col my-10 gap-5">
       <h2 className="text-4xl font-bold uppercase">Un Blog qui Partage Mes Projets et mon évolution</h2> 
       <p className="text-gray-300">Vous pouvez vous abonner afin de suivre ma progression ou sinon vous pouvez tout simplement contribuer à ce blog.</p>
       <div className="flex items-center border border-gray-700 rounded-lg p-1 px-5 justify-between w-[600px] max-md:w-full gap-3">
