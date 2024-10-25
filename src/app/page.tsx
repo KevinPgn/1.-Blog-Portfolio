@@ -21,9 +21,12 @@ export default async function Home() {
       </div>
     </div>
     
-    <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center">
-      <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Admin Post</h2>
-      <div className="absolute top-0 right-0 w-full h-full z-10 rounded-2xl bg-black -rotate-6"></div>
+    <div className="flex items-center justify-between">
+      <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center">
+        <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Admin Post</h2>
+        <div className="absolute top-0 right-0 w-full h-[60px] z-10 rounded-2xl bg-black -rotate-6"></div>
+      </div>
+      <Button variant="default" className="rounded-md">Voir plus</Button>
     </div>
     <AdminPostSection />
 
