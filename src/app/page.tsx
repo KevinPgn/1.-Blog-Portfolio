@@ -21,21 +21,24 @@ export default async function Home() {
       </div>
     </div>
     
-    <h2 className="text-2xl font-bold mb-5">Admin Post</h2>
+    <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center">
+      <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Admin Post</h2>
+      <div className="absolute top-0 right-0 w-full h-full z-10 rounded-2xl bg-black -rotate-6"></div>
+    </div>
     <AdminPostSection />
 
-    <h2 className="text-2xl font-bold my-5">Approved Contributor</h2>
+    <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center">
+      <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Approved Contributor</h2>
+      <div className="absolute top-0 right-0 w-full h-full z-10 rounded-2xl bg-black -rotate-6"></div>
+    </div>
     <ApprovedContributorSection />
 
     <div className="flex items-center justify-between mt-20">
-      <div className="flex flex-col my-5">
-        <h2 className="text-2xl font-bold">Contributor</h2>
-        <span className="text-gray-500 text-sm">Si tu veux essayer de contribuer, tu peux créer un post et une fois ton post finit
-          l'Administrateur pourra le valider ou le refuser. <br /> <br />
-          <span className="text-red-400 font-bold text-sm underline">Ce système est pour prévenir les abus. Veuillez me pardonner</span>
-        </span>
-      </div>
-      {session ? <ButtonCreatePost /> : null}
+    <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center">
+      <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Contributor</h2>
+      <div className="absolute top-0 right-0 w-full h-[60px] z-10 rounded-2xl bg-black -rotate-6"></div>
+    </div>
+    {session ? <ButtonCreatePost /> : null}
     </div>
     <ContributorSection />
     
