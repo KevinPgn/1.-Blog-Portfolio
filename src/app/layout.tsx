@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("bg-[#101011] text-white ", inter.className)}>
+      <body className={inter.className}>
           <SessionProvider>
             <Navbar />
             {children}
