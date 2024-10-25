@@ -33,13 +33,13 @@ export default async function Home() {
     </div>
     <ContributorSection />
 
-    <section className="w-[1400px] mx-auto flex items-center justify-around my-20 bg-[#1a1a1d] p-10 rounded-md">
-      <div className="flex flex-col gap-2 w-[450px]">
+    <section className="max-w-[80%] mx-auto max-md:flex-col flex items-center justify-around my-20 bg-[#1a1a1d] p-10 rounded-md">
+      <div className="flex flex-col gap-2 w-[450px] max-md:w-full">
         <h2 className="text-2xl font-bold">Rejoins ma newsletter</h2>
         <p className="text-gray-500">Rejoins ma newsletter pour ne rien manquer des nouveaux posts avenir <span className="text-red-300">(je ne spammerais pas promis)</span></p>
       </div>
 
-      <div className="w-[550px] flex items-center gap-2">
+      <div className="w-[550px] max-md:w-full flex items-center gap-2 max-md:mt-10">
         <Input type="email" placeholder="Email" className="rounded-md bg-inherit border-gray-700" />
         <Button variant="outline" className="rounded-md text-black">S'abonner</Button>
       </div>
