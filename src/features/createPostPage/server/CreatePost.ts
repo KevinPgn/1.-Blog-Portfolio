@@ -34,7 +34,7 @@ export const createPost = authenticatedAction
             }
 
             const post = await prisma.$transaction(async (tx) => {
-                await tx.post.create({
+                const newPost = await tx.post.create({
                     data: {
                         title, 
                         content, 
@@ -61,15 +61,14 @@ export const createPost = authenticatedAction
                     })
                 }
                 
-                redirect("/")
+                return newPost
             })
-
+            
             revalidatePath("/blog")
             if (userIsAdmin || userIsContributor) {
-                revalidatePath(`/blog/${slug}`)
+                revalidatePath(`/blog/${post.slug}`)
             }
-
-            return { success: true, post }
+            return post
         } catch (error) {
             console.error("Erreur lors de la création du post:", error)
             return { success: false, error: error instanceof Error ? error.message : "Impossible de créer l'article" }

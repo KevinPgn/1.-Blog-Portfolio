@@ -16,8 +16,9 @@ export const FormPrincipal = () => {
   const handleCreatePost = async (data:any) => {
     try{
       setIsLoading(true)
-      await createPost({...data, imageUrl, content, category})
-      setIsLoading(false)
+     const test = await createPost({...data, imageUrl, content, category})
+     console.log(test)
+     setIsLoading(false)
       reset()
     }catch(error){
       console.log(error)
