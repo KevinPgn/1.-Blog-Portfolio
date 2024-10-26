@@ -15,6 +15,6 @@ export const FormPrincipal = () => {
   <FormLeft />
 
   {/* right side */}
-  <FormRight />
+  <FormRight imageUrl={imageUrl} setImageUrl={setImageUrl} />
   </form>
 }
