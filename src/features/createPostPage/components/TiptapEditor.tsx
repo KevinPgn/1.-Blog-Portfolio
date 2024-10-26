@@ -28,7 +28,7 @@ const Editor = ({ content, placeholder, onChange }: EditorProps) => {
 
   return (
     <div className={cn(
-      "prose max-w-none w-full bg-background dark:prose-invert border",
+      "prose max-w-none w-full bg-background dark:prose-invert border rounded-xl",
       "transition-all duration-200",
     )}>
       <EditorToolbar editor={editor} />

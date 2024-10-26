@@ -4,7 +4,7 @@ import Image from "next/image"
 import { X } from "lucide-react"
 export const FormRight = ({imageUrl, setImageUrl}:{imageUrl:string, setImageUrl:any}) => {
   return <div className="w-[40%]">
-    <div className="w-full h-full p-4 bg-white shadow-xl rounded-lg">
+    <div className="w-full h-full p-4 bg-white shadow-xl rounded-xl">
       <h2 className="text-lg font-semibold">Featured Image</h2>
       <div className="w-full h-[1px] bg-gray-200 my-2"></div>
       {imageUrl ? (
@@ -16,6 +16,7 @@ export const FormRight = ({imageUrl, setImageUrl}:{imageUrl:string, setImageUrl:
         </div>
       ): (
         <UploadDropzone
+        className="w-full h-auto cursor-pointer"
         endpoint="imageUploader"
         onClientUploadComplete={(res:any)=>{
           setImageUrl(res[0].url)
