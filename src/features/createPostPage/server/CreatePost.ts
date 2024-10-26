@@ -24,7 +24,7 @@ export const createPost = authenticatedAction
             
             const userIsAdmin = user.role === "admin"
             const userIsContributor = user.role === "approved contributor"
-            const userNumberPosts = await prisma.post.count({ where: { authorId: userId } })
+            const userNumberPosts = await prisma.post.count({ where: { authorId: userId, published: true } })
             const slug = generateSlug(title)
 
             // Vérification de l'existence du slug
