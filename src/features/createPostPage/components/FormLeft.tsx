@@ -5,7 +5,7 @@ import {Select, SelectItem, SelectContent, SelectTrigger, SelectValue} from "@/c
 import CategoryList from "@/data/CategoryList"
 import Editor from "./TiptapEditor"
 
-export const FormLeft = ({register, errors, content, setContent}:{register:any, errors:any, content:string, setContent:any}) => {
+export const FormLeft = ({register, errors, content, setContent, category, setCategory}:{register:any, errors:any, content:string, setContent:any, category:string, setCategory:any}) => {
   return <div className="w-[60%]">
     <div className="flex flex-col gap-2 mt-7">
         <Label>Title <span className="text-red-500">*</span></Label>
@@ -26,7 +26,8 @@ export const FormLeft = ({register, errors, content, setContent}:{register:any, 
     <div className="flex flex-col gap-2 mt-7">
         <Label>Category <span className="text-red-500">*</span></Label>
         <Select
-        {...register("category", {required:"Category is required"})}
+        onValueChange={(value)=>setCategory(value)}
+        defaultValue={category}
         >
             <SelectTrigger>
                 <SelectValue placeholder="Select a category" />
@@ -37,7 +38,6 @@ export const FormLeft = ({register, errors, content, setContent}:{register:any, 
             ))}
             </SelectContent>
         </Select>
-        {errors.category && <p className="text-red-500">{errors.category.message}</p>}
     </div>
 
     <div className="flex flex-col gap-2 mt-7">

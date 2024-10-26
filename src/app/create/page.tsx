@@ -2,7 +2,7 @@ import { FormPrincipal } from "@/features/createPostPage/components/FormPrincipa
 
 const CreatePostPage = () => {
   return (
-    <section className='max-w-[1100px] mx-auto'>
+    <section className='max-w-[1200px] mx-auto'>
         <h2 className='text-2xl font-bold'>Create Post</h2>
          <FormPrincipal />   
     </section>

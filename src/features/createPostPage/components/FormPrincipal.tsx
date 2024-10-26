@@ -4,18 +4,34 @@ import {useState, startTransition} from "react"
 import { FormLeft } from "./FormLeft"
 import { FormRight } from "./FormRight"
 import {createPost} from "../server/CreatePost"
+import {Button} from "@/components/ui/button"
 
 export const FormPrincipal = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [imageUrl, setImageUrl] = useState<string>("")
   const [content, setContent] = useState<string>("")
+  const [category, setCategory] = useState<string>("")
   const {register, handleSubmit, reset, formState:{errors}} = useForm()
 
-  return <form className="flex items-start gap-10">
-  {/* left side */}
-  <FormLeft register={register} errors={errors} content={content} setContent={setContent} />
+  const handleCreatePost = async (data:any) => {
+    try{
+      setIsLoading(true)
+      await createPost({...data, imageUrl, content, category})
+      setIsLoading(false)
+      reset()
+    }catch(error){
+      console.log(error)
+      setIsLoading(false)
+    }
+  }
 
-  {/* right side */}
-  <FormRight imageUrl={imageUrl} setImageUrl={setImageUrl} />
+  return <form onSubmit={handleSubmit(handleCreatePost)}>
+  {/* left side */}
+  <div className="flex items-start gap-10">
+    <FormLeft register={register} errors={errors} content={content} setContent={setContent} category={category} setCategory={setCategory} />
+    <FormRight imageUrl={imageUrl} setImageUrl={setImageUrl} />
+  </div>
+
+    <Button type="submit" className="mt-5 px-10">Create Post</Button>
   </form>
 }
