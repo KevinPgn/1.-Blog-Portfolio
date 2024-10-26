@@ -3,11 +3,11 @@ import prisma from "@/lib/prisma"
 import {z} from "zod"
 import { authenticatedAction } from "@/lib/safe-actions"
 import { revalidatePath } from "next/cache"
-import { cache } from "react"
 import { generateSlug } from "@/utils/generateSlug"
 import { UserProps } from "@/lib/types"
 import { getSession } from "@/utils/CacheSession"
 import estimateReadingTime from "@/utils/estimatedReadingTime"
+import { redirect } from "next/navigation"
 
 export const createPost = authenticatedAction
     .schema(z.object({
@@ -34,7 +34,7 @@ export const createPost = authenticatedAction
             }
 
             const post = await prisma.$transaction(async (tx) => {
-                const newPost = await tx.post.create({
+                await tx.post.create({
                     data: {
                         title, 
                         content, 
@@ -54,14 +54,14 @@ export const createPost = authenticatedAction
                         data: { reputationScore: { increment: 5 } }
                     })
                 }
-                if(userNumberPosts >= 5) {
+                if(userNumberPosts >= 10) {
                     await tx.user.update({
                         where: { id: userId },
                         data: { role: "approved contributor" }
                     })
                 }
-
-                return newPost
+                
+                redirect("/")
             })
 
             revalidatePath("/blog")
