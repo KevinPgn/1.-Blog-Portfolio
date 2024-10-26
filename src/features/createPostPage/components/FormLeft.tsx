@@ -3,8 +3,9 @@ import {Input} from "@/components/ui/input"
 import {Label} from "@/components/ui/label"
 import {Select, SelectItem, SelectContent, SelectTrigger, SelectValue} from "@/components/ui/select"
 import CategoryList from "@/data/CategoryList"
+import Editor from "./TiptapEditor"
 
-export const FormLeft = ({register, errors, setContent}:{register:any, errors:any, setContent:any}) => {
+export const FormLeft = ({register, errors, content, setContent}:{register:any, errors:any, content:string, setContent:any}) => {
   return <div className="w-[60%]">
     <div className="flex flex-col gap-2 mt-7">
         <Label>Title <span className="text-red-500">*</span></Label>
@@ -41,6 +42,8 @@ export const FormLeft = ({register, errors, setContent}:{register:any, errors:an
 
     <div className="flex flex-col gap-2 mt-7">
         <Label>Content <span className="text-red-500">*</span></Label>
+        <Editor onChange={setContent} content={content} />
+        {errors.content && <p className="text-red-500">{errors.content.message}</p>}
     </div>
   </div>
 }
