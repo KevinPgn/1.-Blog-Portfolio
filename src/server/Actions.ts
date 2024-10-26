@@ -24,6 +24,7 @@ export const createPost = authenticatedAction
             
             const userIsAdmin = user.role === "admin"
             const userIsContributor = user.role === "approved contributor"
+            const userNumberPosts = await prisma.post.count({ where: { authorId: userId } })
             const slug = generateSlug(title)
 
             // Vérification de l'existence du slug
@@ -51,6 +52,12 @@ export const createPost = authenticatedAction
                     await tx.user.update({
                         where: { id: userId },
                         data: { reputationScore: { increment: 5 } }
+                    })
+                }
+                if(userNumberPosts >= 5) {
+                    await tx.user.update({
+                        where: { id: userId },
+                        data: { role: "approved contributor" }
                     })
                 }
 
