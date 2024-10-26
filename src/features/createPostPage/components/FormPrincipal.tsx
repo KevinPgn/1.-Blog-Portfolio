@@ -13,7 +13,7 @@ export const FormPrincipal = () => {
 
   return <form className="flex items-start gap-10">
   {/* left side */}
-  <FormLeft register={register} errors={errors} content={content} setContent={setContent} />
+  <FormLeft register={register} errors={errors} setContent={setContent} />
 
   {/* right side */}
   <FormRight imageUrl={imageUrl} setImageUrl={setImageUrl} />

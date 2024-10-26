@@ -37,9 +37,12 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@types/draft-js": "^0.11.18",
+    "@types/draftjs-to-html": "^0.8.4",
     "@types/node": "^20.12.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-draft-wysiwyg": "^1.13.8",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.0.0",
     "postcss": "^8",
