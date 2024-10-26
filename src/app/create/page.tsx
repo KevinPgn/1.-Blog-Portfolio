@@ -2,7 +2,9 @@ import React from 'react'
 
 const CreatePostPage = () => {
   return (
-    <div>CreatePostPage</div>
+    <section className='max-w-[1200px] mx-auto flex items-start gap-10'>
+
+    </section>
   )
 }
 
