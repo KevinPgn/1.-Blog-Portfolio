@@ -7,7 +7,7 @@ export const NewsLetter = () => {
 
     <div className="w-full rounded-3xl bg-white shadow-lg p-4">
         <Input type="email" placeholder="Entrez votre email" className="bg-transparent rounded-xl" />
-        <Button variant="default" className="w-full rounded-xl mt-5">S'abonner</Button>
+        <Button variant="default" className="w-full rounded-xl mt-5 transition-transform active:scale-95">S'abonner</Button>
     </div>
   </div>
 }
