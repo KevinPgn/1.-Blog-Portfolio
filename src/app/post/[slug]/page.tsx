@@ -63,8 +63,8 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
             createdAt={post.createdAt}
             minRead={post.minRead}
         />
-        <div className="flex items-start gap-7 w-full mb-10 p-5 py-14">
-            <div className="w-[70%]">
+        <div className="flex items-start gap-10 w-full mb-10 p-5 py-14">
+            <div className="w-[70%] border-r border-gray-200">
                 <PostContent content={post.content || ""} />
             </div>
             <div className="w-[30%]">
