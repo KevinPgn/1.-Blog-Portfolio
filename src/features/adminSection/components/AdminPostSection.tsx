@@ -7,16 +7,12 @@ export const AdminPostSection = async () => {
   const [firstPost, ...restPosts] = adminPosts
 
   return <section className="flex flex-col lg:flex-row items-start gap-7 mb-20 mt-10"> 
-   <div className="w-full lg:w-[50%] relative flex flex-col gap-4 bg-white border border-gray-100 shadow-xl cursor-pointer rounded-2xl duration-300 hover:shadow-2xl">        
-   <Link href={`/post/${firstPost.slug}`}>
-    <Image src={firstPost.imageUrl || ""} alt="Placeholder Image" width={1000} height={1000} className="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] bg-[#1a1a1d] rounded-t-xl object-cover"></Image>
-        <div className="p-4">
-          <h2 className="text-xl sm:text-2xl font-bold mt-2">{firstPost.title}</h2>
-          <p className="text-sm sm:text-base text-gray-500 w-full mt-2">
-          {firstPost.description}
-          </p>  
-        </div>
-   </Link>
+   <div className="w-full lg:w-[50%] relative flex flex-col gap-4 cursor-pointer">        
+    <Image src={firstPost.imageUrl || ""} alt="Placeholder Image" width={1000} height={1000} className="w-full h-[400px] rounded-2xl object-cover group-hover:scale-105 duration-300"></Image>
+    <Link href={`/post/${firstPost.slug}`}>
+      <h3 className="text-2xl text-[#12192B] font-bold cursor-pointer">{firstPost.title}</h3>
+    </Link>
+    <p className="text-gray-500">{firstPost?.description}</p>
    </div>
 
    <div className="w-full lg:w-[50%]">
