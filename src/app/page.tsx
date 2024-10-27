@@ -42,7 +42,7 @@ export default async function Home() {
       <h2 className="text-2xl relative font-bold mb-5 bg-white border-4 z-20 border-black rounded-2xl p-2">Approved Contributor</h2>
       <div className="absolute top-0 right-0 w-full h-[60px] z-10 rounded-2xl bg-black -rotate-6 group-hover:rotate-6 duration-75"></div>
     </div>
-    <ApprovedContributorSection />
+    <ApprovedContributorSection sessionId={session?.user?.id || ""}/>
 
     <div className="flex items-center justify-between mt-20">
     <div className="relative w-[350px] max-md:w-[250px] max-md:mx-auto text-center group">
@@ -55,7 +55,7 @@ export default async function Home() {
     </div>
     </div>
     <CategoryList />
-    <ContributorSection />
+    <ContributorSection sessionId={session?.user?.id || ""}/>
     
     <Footer />
   </div>

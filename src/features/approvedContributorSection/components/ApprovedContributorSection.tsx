@@ -3,12 +3,12 @@ import { Trash } from "lucide-react";
 import { getApprovedContributorPosts } from "../server/getApprovedContributorPosts";
 import { PostCard } from "@/components/PostCard";
 
-export const ApprovedContributorSection = async () => {
+export const ApprovedContributorSection = async ({ sessionId }: { sessionId: string }) => {
   const approvedContributorPosts = await getApprovedContributorPosts()
 
   return <section className="max-md:px-2 flex max-2xl:justify-center items-center gap-14 flex-wrap my-20">
     {approvedContributorPosts.map((post) => (
-      <PostCard key={post.id} {...post} />
+      <PostCard key={post.id} {...post} sessionId={sessionId} postAuthorId={post.author.id}/>
     ))}
 
     <div className="flex flex-col gap-2 p-4 relative z-20 rounded-md hover:bg-[#efeff1] shadow-[3px_5px_0px_7px_#000000] hover:shadow-[5px_10px_15px_10px_#1a1a1d] duration-75 w-[22%] max-2xl:w-[30%] max-md:w-full">

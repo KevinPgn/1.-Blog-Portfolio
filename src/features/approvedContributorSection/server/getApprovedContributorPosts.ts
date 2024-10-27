@@ -13,7 +13,8 @@ export const getApprovedContributorPosts = cache(async () => {
             description: true,
             imageUrl: true,
             createdAt: true,
-            category: true
+            category: true,
+            author: { select: { id: true } }
         },
         take: 8
     })
