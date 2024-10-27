@@ -5,7 +5,7 @@ import { cache } from "react"
 export const getContributorPosts = cache(async () => {
     return await prisma.post.findMany({
         orderBy: { createdAt: 'desc' },
-        where: { author: { role: 'contributor' } },
+        where: { author: { role: 'contributor' }, published: true },
         select: {
             id: true,
             title: true,

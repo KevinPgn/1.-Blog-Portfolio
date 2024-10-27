@@ -33,6 +33,6 @@ export const FormPrincipal = () => {
     <FormRight imageUrl={imageUrl} setImageUrl={setImageUrl} />
   </div>
 
-    <Button type="submit" className="mt-5 px-10">Create Post</Button>
+    <Button disabled={imageUrl === ""} type="submit" className="mt-5 px-10">Create Post</Button>
   </form>
 }

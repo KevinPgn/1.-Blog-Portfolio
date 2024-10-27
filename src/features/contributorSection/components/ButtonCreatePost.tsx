@@ -7,7 +7,7 @@ export const ButtonCreatePost = () => {
   const router = useRouter()
 
   return <>
-    <Button variant="outline" onClick={() => router.push("/create-post")} className="flex items-center gap-1 text-black">
+    <Button variant="outline" onClick={() => router.push("/create")} className="flex items-center gap-1 text-black">
       <Plus size={20} />
     </Button>
   </>
