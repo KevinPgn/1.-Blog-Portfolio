@@ -2,12 +2,27 @@ import prisma from "@/lib/prisma"
 import { cache } from "react"
 import { notFound } from "next/navigation"
 import { PostHeader } from "@/features/postInformations/components/PostHeader"
+import { Metadata } from "next"
 
 interface PostSlugPageProps {
     params: Promise<{
         slug: string
     }>
 }
+
+export async function generateMetadata({ params }: PostSlugPageProps): Promise<Metadata> {
+    const { slug } = await params
+    const post = await getPost(decodeURIComponent(slug))
+    if (!post) return { title: 'Post Not Found' }
+  
+    return {
+      title: post.title,
+      description: post.description,
+      openGraph: {
+        images: [{ url: post.imageUrl || "" }],
+      },
+    }
+  }
 
 const getPost = cache(async (slug: string) => {
     const post = await prisma.post.findUnique({
@@ -38,7 +53,7 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   }
 
   return (
-    <section>
+    <section className="max-w-[1600px] mx-auto px-2">
         <PostHeader 
             title={post.title}
             description={post.description}
