@@ -8,7 +8,7 @@ export const AdminPostSection = async () => {
 
   return <section className="flex flex-col lg:flex-row items-start gap-7 mb-20 mt-10"> 
    <div className="w-full lg:w-[50%] relative flex flex-col gap-4">        
-    <Image src={firstPost.imageUrl || ""} alt="Placeholder Image" width={1000} height={1000} className="w-full h-[400px] rounded-2xl object-cover group-hover:scale-105 duration-300"></Image>
+    <Image src={firstPost.imageUrl || ""} alt="Placeholder Image" width={1000} height={1000} className="w-full h-[450px] rounded-2xl object-cover group-hover:scale-105 duration-300"></Image>
     <Link href={`/post/${firstPost.slug}`}>
       <h3 className="text-2xl text-[#12192B] font-bold cursor-pointer">{firstPost.title}</h3>
     </Link>
