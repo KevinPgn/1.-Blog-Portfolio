@@ -6,8 +6,8 @@ import CategoryList from "@/data/CategoryList"
 import Editor from "./TiptapEditor"
 
 export const FormLeft = ({register, errors, content, setContent, category, setCategory}:{register:any, errors:any, content:string, setContent:any, category:string, setCategory:any}) => {
-  return <div className="w-[60%]">
-    <div className="flex flex-col gap-2 mt-7">
+  return <div className="w-[60%] bg-white rounded-xl shadow-md p-7">
+    <div className="flex flex-col gap-2 mt-7"> 
         <Label className="text-md">Title <span className="text-red-500">*</span></Label>
         <Input 
         className="bg-white rounded-xl shadow-md text-md p-3 py-7"
