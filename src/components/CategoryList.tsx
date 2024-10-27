@@ -1,15 +1,11 @@
+"use client"
 import { CategoryList as CategoryListData } from "@/data/CategoryList";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export const CategoryList = () => {
   return <div className="flex items-center gap-5 flex-wrap mt-10">
     {CategoryListData.map((category) => (
-      <div key={category.id} className="relative">
-        <Link href={`/category/${category.name}`} className="bg-white border-4 border-black relative z-20 rounded-md p-2 px-5 text-black cursor-pointer hover:bg-gray-200 duration-75">
-          <span className="text-sm">{category.name}</span>
-        </Link>
-        <div className="absolute top-0 left-0 w-full h-[40px] z-10 rounded-md bg-black -rotate-6 group-hover:rotate-6 duration-75"></div>
-      </div>
+      <Button key={category.id} variant="default" className="text-sm active:scale-95 duration-75 bg-blue-600 text-white px-7 hover:bg-blue-800">{category.name}</Button>
     ))}
   </div>
 }
