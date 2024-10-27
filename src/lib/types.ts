@@ -7,3 +7,12 @@ export interface UserProps {
     role: string;
     bio: string;
 }
+
+export interface PostHeaderProps {
+    title: string;
+    description: string | null;
+    imageUrl: string | null;
+    category: string | null;
+    createdAt: Date;
+    minRead: number;
+}

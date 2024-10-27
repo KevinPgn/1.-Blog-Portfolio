@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma"
 import { cache } from "react"
 import { notFound } from "next/navigation"
+import { PostHeader } from "@/features/postInformations/components/PostHeader"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -21,12 +22,7 @@ const getPost = cache(async (slug: string) => {
             views: true,
             minRead: true,
             createdAt: true,
-            author: {
-                select: {
-                    name: true,
-                    image: true
-                }
-            }
+            author: { select: { name: true, image: true } }
         }
     })
     return post
@@ -42,7 +38,16 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   }
 
   return (
-    <div>PostSlugPage</div>
+    <section>
+        <PostHeader 
+            title={post.title}
+            description={post.description}
+            imageUrl={post.imageUrl}
+            category={post.category}
+            createdAt={post.createdAt}
+            minRead={post.minRead}
+        />
+    </section>
   )
 }
 
