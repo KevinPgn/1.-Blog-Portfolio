@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Trash } from "lucide-react";
+import Link from "next/link";
 
-export function PostCard({ category, imageUrl, date, title, description, sessionId, postAuthorId }: any) {
+export function PostCard({ category, slug, imageUrl, date, title, description, sessionId, postAuthorId }: any) {
     return (
       <div className="flex flex-col gap-2 p-4 relative z-20 rounded-md hover:bg-[#efeff1] shadow-[3px_5px_0px_7px_#000000] hover:shadow-[5px_10px_15px_10px_#1a1a1d] duration-75 w-[22%] max-2xl:w-[30%] max-md:w-full">
         <div className="absolute top-0 left-0 w-fit border-4 border-black flex items-center justify-center px-10 h-[60px] z-10 rounded-md bg-white -translate-y-2/4 -translate-x-1">
@@ -16,7 +17,9 @@ export function PostCard({ category, imageUrl, date, title, description, session
         <div className="flex items-center gap-2">
           <span className="text-gray-700 text-sm">{date}</span>
         </div>
-        <h3 className="text-xl font-bold cursor-pointer">{title}</h3>
+        <Link href={`/post/${slug}`}>
+          <h3 className="text-xl font-bold cursor-pointer">{title}</h3>
+        </Link>
         <p className="text-gray-500">{description.length > 100 ? description.substring(0, 100) + "..." : description}</p>
       </div>
     );
