@@ -3,6 +3,7 @@ import { cache } from "react"
 import { notFound } from "next/navigation"
 import { PostHeader } from "@/features/postInformations/components/PostHeader"
 import { Metadata } from "next"
+import { PostContent } from "@/features/postInformations/components/PostContent"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -62,6 +63,14 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
             createdAt={post.createdAt}
             minRead={post.minRead}
         />
+        <div className="flex items-start gap-7 w-full mb-10 p-5 py-14">
+            <div className="w-[70%]">
+                <PostContent content={post.content || ""} />
+            </div>
+            <div className="w-[30%]">
+                <div className="w-full h-[300px] bg-red-500"></div>
+            </div>
+        </div>
     </section>
   )
 }

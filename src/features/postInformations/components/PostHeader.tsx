@@ -8,9 +8,9 @@ export const PostHeader = ({ title, description, imageUrl, category, createdAt, 
         <h1 className="text-white text-4xl font-bold">{title}</h1>
         <p className="text-white text-lg font-light mt-4">{description}</p>
         <div className="flex items-center gap-4 mt-4">
-            <p className="text-white text-md font-normal border border-gray-500 px-5 hover:bg-gray-800 duration-75 cursor-pointer py-1 rounded-xl">{category}</p>
-            <p className="text-white text-md font-normal border border-gray-500 px-5 hover:bg-gray-800 duration-75 cursor-pointer py-1 rounded-xl">{createdAt.toLocaleDateString()}</p>
-            <p className="text-white text-md font-normal border border-gray-500 px-5 hover:bg-gray-800 duration-75 cursor-pointer py-1 rounded-xl">{minRead} min read</p>
+            <p className="text-white text-md font-normal border border-gray-500 px-5 duration-75 cursor-pointer py-1 rounded-xl">{category}</p>
+            <p className="text-white text-md font-normal border border-gray-500 px-5 duration-75 cursor-pointer py-1 rounded-xl">{createdAt.toLocaleDateString()}</p>
+            <p className="text-white text-md font-normal border border-gray-500 px-5 duration-75 cursor-pointer py-1 rounded-xl">{minRead} min read</p>
         </div>
     </div>
   </div>
