@@ -14,7 +14,7 @@ const LinksItems = [
 const Links = ({userRole}: {userRole: string}) => {
   const pathname = usePathname();
 
-  return <div className="flex items-center gap-10 max-lg:hidden">
+  return <div className="flex items-center gap-10 max-2xl:hidden">
     {LinksItems.map((item) => (
       <Link key={item.id} href={item.href} className={cn("hover:text-gray-500 text-sm font-semibold duration-75 uppercase text-md tracking-wider", pathname === item.href && "text-blue-500 underline hover:text-blue-500")}>{item.name}</Link>
     ))}
