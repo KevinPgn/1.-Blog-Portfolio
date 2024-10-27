@@ -4,6 +4,8 @@ import { notFound } from "next/navigation"
 import { PostHeader } from "@/features/postInformations/components/PostHeader"
 import { Metadata } from "next"
 import { PostContent } from "@/features/postInformations/components/PostContent"
+import { PostAuthor } from "@/features/postInformations/components/PostAuthor"
+import { NewsLetter } from "@/features/postInformations/components/NewsLetter"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -38,7 +40,7 @@ const getPost = cache(async (slug: string) => {
             views: true,
             minRead: true,
             createdAt: true,
-            author: { select: { name: true, image: true } }
+            author: { select: { name: true, image: true, bio: true } }
         }
     })
     return post
@@ -63,12 +65,17 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
             createdAt={post.createdAt}
             minRead={post.minRead}
         />
-        <div className="flex items-start gap-10 w-full mb-10 p-5 py-14">
-            <div className="w-[70%] border-r border-gray-200">
+        <div className="flex items-start gap-10 w-full mb-10 p-5 py-14 max-lg:flex-col">
+            <div className="w-[70%] border-r border-gray-200 max-lg:border-r-0 max-lg:w-full">
                 <PostContent content={post.content || ""} />
             </div>
-            <div className="w-[30%]">
-                <div className="w-full h-[300px] bg-red-500"></div>
+            <div className="w-[30%] max-lg:w-full">
+                <PostAuthor 
+                    name={post.author?.name || ""}
+                    image={post.author?.image || ""}
+                    bio={post.author?.bio || ""}
+                />
+                <NewsLetter />
             </div>
         </div>
     </section>

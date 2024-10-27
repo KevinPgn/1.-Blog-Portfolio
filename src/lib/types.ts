@@ -14,3 +14,9 @@ export interface PostHeaderProps {
     createdAt: Date;
     minRead: number;
 }
+
+export interface PostAuthorProps {
+    name: string;
+    image: string;
+    bio: string;
+}
