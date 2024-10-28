@@ -9,6 +9,7 @@ import { generateMetadata } from "@/lib/metadata"
 import { getSession } from "@/utils/CacheSession"
 import { CommentsForm } from "@/features/postInformations/components/comments/CommentsForm"
 import { CommentsList } from "@/features/postInformations/components/comments/CommentsList"
+import { Suspense } from "react"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -48,7 +49,9 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
                     <h3 className="text-lg font-bold text-center">Connectez-vous pour laisser un commentaire !</h3>
                   </div>
                 )}
-                <CommentsList postComments={post.comments} commentsCount={commentsCount} />
+                <Suspense fallback={<div>Chargement des commentaires...</div>}>
+                  <CommentsList postComments={post.comments} commentsCount={commentsCount} />
+                </Suspense>
             </div>
             <div className="w-[30%] max-lg:w-full">
                 <PostAuthor 
