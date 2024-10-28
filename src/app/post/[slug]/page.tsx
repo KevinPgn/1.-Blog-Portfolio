@@ -1,5 +1,3 @@
-import prisma from "@/lib/prisma"
-import { cache } from "react"
 import { notFound } from "next/navigation"
 import { PostHeader } from "@/features/postInformations/components/PostHeader"
 import { Metadata } from "next"
@@ -10,7 +8,7 @@ import { getPost } from "@/features/postInformations/server/getPost"
 import { generateMetadata } from "@/lib/metadata"
 import { getSession } from "@/utils/CacheSession"
 import { CommentsForm } from "@/features/postInformations/components/comments/CommentsForm"
-import { Comments } from "@/features/postInformations/components/comments/Comments"
+import { CommentsList } from "@/features/postInformations/components/comments/CommentsList"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -24,8 +22,8 @@ export async function generateMetadataForPost({ params }: PostSlugPageProps): Pr
 
 const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   const { slug } = await params
-  const decodedSlug = decodeURIComponent(slug)
-  const post = await getPost(decodedSlug)
+
+  const {post, commentsCount} = await getPost(decodeURIComponent(slug))
   const session = await getSession()
 
   if(!post) {
@@ -50,7 +48,7 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
                     <h3 className="text-lg font-bold text-center">Connectez-vous pour laisser un commentaire !</h3>
                   </div>
                 )}
-                <Comments postComments={post.comments} />
+                <CommentsList postComments={post.comments} commentsCount={commentsCount} />
             </div>
             <div className="w-[30%] max-lg:w-full">
                 <PostAuthor 

@@ -23,9 +23,17 @@ export const getPost = cache(async (slug: string) => {
                 },
                 orderBy: { createdAt: "desc" },
                 take: 5
-            }    
+            },
+            _count: {
+                select: {
+                    comments: true
+                }
+            }   
         }
     })
 
-    return post
+    return {
+        post,
+        commentsCount: post?._count.comments
+    }
 })
