@@ -10,7 +10,7 @@ export const FormLeft = ({register, errors, content, setContent, category, setCa
     <div className="flex flex-col gap-2 mt-2"> 
         <Label className="text-md">Title <span className="text-red-500">*</span></Label>
         <Input 
-        className="bg-white shadow-md text-sm p-3 py-5 rounded-lg py-[23px]"
+        className="bg-white shadow-sm text-sm p-3 py-5 rounded-lg py-[23px]"
         placeholder="e.g. My first post"
         {...register("title", {required:"Title is required", minLength:{value:5, message:"Title must be at least 5 characters long"}})} />
         {errors.title && <p className="text-red-500">{errors.title.message}</p>}
@@ -19,7 +19,7 @@ export const FormLeft = ({register, errors, content, setContent, category, setCa
     <div className="flex flex-col gap-2 mt-7">
         <Label className="text-md">Description <span className="text-red-500">*</span></Label>
         <Input 
-        className="bg-white shadow-md text-sm p-3 py-5 rounded-lg"
+        className="bg-white shadow-sm text-sm p-3 py-5 rounded-lg"
         placeholder="e.g. This is a description of my first post"
         {...register("description", {required:"Description is required", minLength:{value:15, message:"Description must be at least 5 characters long"}})} />
         {errors.description && <p className="text-red-500">{errors.description.message}</p>}
@@ -31,10 +31,10 @@ export const FormLeft = ({register, errors, content, setContent, category, setCa
         onValueChange={(value)=>setCategory(value)}
         defaultValue={category}
         >
-            <SelectTrigger className="bg-white shadow-md text-sm p-3 py-5 rounded-lg">
+            <SelectTrigger className="bg-white shadow-sm text-sm p-3 py-5 rounded-lg">
                 <SelectValue placeholder="Select a category" />
             </SelectTrigger>
-            <SelectContent className="bg-white shadow-md text-sm p-3 py-5 rounded-lg">
+            <SelectContent className="bg-white shadow-sm text-sm p-3 py-5 rounded-lg">
             {CategoryList.map((category, index)=>(
                 <SelectItem className="cursor-pointer text-md hover:bg-gray-100 rounded-xl" key={index} value={category.name}>{category.name}</SelectItem>
             ))}
