@@ -26,7 +26,7 @@ export const FormPrincipal = () => {
     }
   }
 
-  return <form onSubmit={handleSubmit(handleCreatePost)} className="mb-5">
+  return <form onSubmit={handleSubmit(handleCreatePost)} className="mb-5 mt-10">
   {/* left side */}
   <div className="flex items-start gap-10">
     <FormLeft register={register} errors={errors} content={content} setContent={setContent} category={category} setCategory={setCategory} />
