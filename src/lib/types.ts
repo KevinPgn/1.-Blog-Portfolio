@@ -20,3 +20,11 @@ export interface PostAuthorProps {
     image: string;
     bio: string;
 }
+
+export interface PostCommentsProps {
+    content: string;
+    author: {
+        name: string | null;
+        image: string | null;
+    }
+}
