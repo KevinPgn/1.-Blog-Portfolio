@@ -1,8 +1,8 @@
 import { FaXTwitter } from "react-icons/fa6";
 import { FaDiscord } from "react-icons/fa";
-import { SignInButton } from "@/features/auth/SignInButton";
+import { SignInButton } from "@/components/auth/SignInButton";
 import { UserProps } from "@/lib/types";
-import { SignOutButton } from "@/features/auth/SignOutButton";
+import { SignOutButton } from "@/components/auth/SignOutButton";
 
 export const ConnexionAndSocial = ({user}: {user: UserProps | null}) => {
   return <div className="flex items-center gap-5">
