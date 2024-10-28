@@ -6,8 +6,6 @@ import { usePathname } from "next/navigation";
 const LinksItems = [
     {id: 1, name: "Blog", href: "/" },
     {id: 2, name: "About Me", href: "/about-us" },
-    {id: 3, name: "Contact", href: "/contact" },
-    {id: 4, name: "Contributor", href: "/contributor" },
     {id: 5, name: "Portfolio", href: "/portfolio" },
 ]
 
