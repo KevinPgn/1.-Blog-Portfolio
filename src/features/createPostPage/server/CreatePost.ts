@@ -63,9 +63,6 @@ export const createPost = authenticatedAction
             })
             
             revalidatePath("/blog")
-            if (userIsAdmin || userIsContributor) {
-                revalidatePath(`/blog/${post.slug}`)
-            }
             return post
         } catch (error) {
             console.error("Erreur lors de la création du post:", error)
