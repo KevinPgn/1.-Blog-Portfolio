@@ -22,6 +22,7 @@ export interface PostAuthorProps {
 }
 
 export interface PostCommentsProps {
+    id: string;
     content: string;
     author: {
         name: string | null;
