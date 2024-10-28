@@ -23,13 +23,14 @@ export const createPost = authenticatedAction
             
             const userIsAdmin = user.role === "admin"
             const userIsContributor = user.role === "approved contributor"
-            const userNumberPosts = await prisma.post.count({ where: { authorId: userId, published: true } })
             const slug = generateSlug(title)
 
-
             // Vérification de l'existence du slug
-            const existingPost = await prisma.post.findUnique({ where: { slug } })
-            if (existingPost) {
+            const [userNumberPosts, existingPost] = await Promise.all([
+                prisma.post.count({ where: { authorId: userId, published: true } }),
+                prisma.post.findUnique({ where: { slug } })
+            ])
+            if(!existingPost) {
                 throw new Error("Un article avec ce titre existe déjà")
             }
 
@@ -48,16 +49,13 @@ export const createPost = authenticatedAction
                     }
                 })
 
-                if (userIsAdmin || userIsContributor) {
+                if ((userIsAdmin || userIsContributor) || userNumberPosts >= 8) {
                     await tx.user.update({
                         where: { id: userId },
-                        data: { reputationScore: { increment: 5 } }
-                    })
-                }
-                if(userNumberPosts >= 8) {
-                    await tx.user.update({
-                        where: { id: userId },
-                        data: { role: "approved contributor" }
+                        data: {
+                            ...(userIsAdmin || userIsContributor) && { reputationScore: { increment: 5 } },
+                            ...(userNumberPosts >= 8) && { role: "approved contributor" }
+                        }
                     })
                 }
                 
