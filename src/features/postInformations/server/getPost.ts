@@ -20,6 +20,7 @@ export const getPost = cache(async (slug: string) => {
                 select: {
                     id: true,
                     content: true,
+                    createdAt: true,
                     author: { select: {name: true, image: true } }
                 },
                 orderBy: { createdAt: "desc" },

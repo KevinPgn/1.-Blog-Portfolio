@@ -23,7 +23,7 @@ export const CommentsForm = ({ sessionImage, postId }: { sessionImage: string, p
   return <>
     <h3 className="text-lg font-bold my-5">Laisse un commentaire !</h3>
     
-    <form onSubmit={onSubmit} className="w-[700px] bg-white shadow-lg rounded-2xl border border-gray-200 p-4 mx-auto flex items-start gap-3 mt-3">
+    <form onSubmit={onSubmit} className="w-[700px] max-lg:w-full bg-white shadow-lg rounded-2xl border border-gray-200 p-4 mx-auto flex items-start gap-3 mt-3">
         <img src={sessionImage} alt="user image" className="w-10 h-10 rounded-full" />
         <div className="w-full flex items-end">
             <div className="flex flex-col gap-2 w-full">

@@ -24,6 +24,7 @@ export interface PostAuthorProps {
 export interface PostCommentsProps {
     id: string;
     content: string;
+    createdAt: Date;
     author: {
         name: string | null;
         image: string | null;
