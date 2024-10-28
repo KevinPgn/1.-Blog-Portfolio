@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button"
 import { startTransition } from "react"
 import { createComment } from "../../server/createComments"
 import { useState } from "react"
-import { error } from "console"
 
 export const CommentsForm = ({ sessionImage, postId }: { sessionImage: string, postId: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
