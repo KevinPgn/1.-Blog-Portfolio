@@ -6,6 +6,7 @@ import { Metadata } from "next"
 import { PostContent } from "@/features/postInformations/components/PostContent"
 import { PostAuthor } from "@/features/postInformations/components/PostAuthor"
 import { NewsLetter } from "@/features/postInformations/components/NewsLetter"
+import { getPost } from "@/features/postInformations/server/getPost"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -27,24 +28,6 @@ export async function generateMetadata({ params }: PostSlugPageProps): Promise<M
     }
   }
 
-const getPost = cache(async (slug: string) => {
-    const post = await prisma.post.findUnique({
-        where: { slug },
-        select: {
-            id: true,
-            title: true,
-            description: true,
-            imageUrl: true,
-            category: true,
-            content: true,
-            views: true,
-            minRead: true,
-            createdAt: true,
-            author: { select: { name: true, image: true, bio: true } }
-        }
-    })
-    return post
-})
 
 const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   const { slug } = await params
