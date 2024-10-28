@@ -44,7 +44,7 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
         <div className="flex items-start gap-10 w-full mb-10 p-5 py-14 max-lg:flex-col">
             <div className="w-[70%] border-r border-gray-200 max-lg:border-r-0 max-lg:w-full">
                 <PostContent content={post.content || ""} />
-                {session ? <CommentsForm sessionImage={session.user?.image || ""} sessionId={session.user?.id || ""} /> : (
+                {session ? <CommentsForm sessionImage={session.user?.image || ""} /> : (
                   <div className="w-full mt-10 mb-5">
                     <h3 className="text-lg font-bold text-center">Connectez-vous pour laisser un commentaire !</h3>
                   </div>
