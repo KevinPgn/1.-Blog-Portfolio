@@ -15,7 +15,15 @@ export const getPost = cache(async (slug: string) => {
             views: true,
             minRead: true,
             createdAt: true,
-            author: { select: { name: true, image: true, bio: true }  }
+            author: { select: { name: true, image: true, bio: true }  },
+            comments: {
+                select: {
+                    content: true,
+                    author: { select: { name: true, image: true } }
+                },
+                orderBy: { createdAt: "desc" },
+                take: 5
+            }    
         }
     })
 

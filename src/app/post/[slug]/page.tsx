@@ -8,6 +8,8 @@ import { PostAuthor } from "@/features/postInformations/components/PostAuthor"
 import { NewsLetter } from "@/features/postInformations/components/NewsLetter"
 import { getPost } from "@/features/postInformations/server/getPost"
 import { generateMetadata } from "@/lib/metadata"
+import { getSession } from "@/utils/CacheSession"
+import { CommentsForm } from "@/features/postInformations/components/comments/CommentsForm"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -23,6 +25,7 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   const { slug } = await params
   const decodedSlug = decodeURIComponent(slug)
   const post = await getPost(decodedSlug)
+  const session = await getSession()
 
   if(!post) {
     notFound()
@@ -41,6 +44,11 @@ const PostSlugPage = async ({ params }: PostSlugPageProps) => {
         <div className="flex items-start gap-10 w-full mb-10 p-5 py-14 max-lg:flex-col">
             <div className="w-[70%] border-r border-gray-200 max-lg:border-r-0 max-lg:w-full">
                 <PostContent content={post.content || ""} />
+                {session ? <CommentsForm sessionImage={session.user?.image || ""} sessionId={session.user?.id || ""} /> : (
+                  <div className="w-full mt-10 mb-5">
+                    <h3 className="text-lg font-bold text-center">Connectez-vous pour laisser un commentaire !</h3>
+                  </div>
+                )}
             </div>
             <div className="w-[30%] max-lg:w-full">
                 <PostAuthor 
