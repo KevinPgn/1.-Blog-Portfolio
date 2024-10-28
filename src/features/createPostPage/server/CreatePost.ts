@@ -7,7 +7,6 @@ import { generateSlug } from "@/utils/generateSlug"
 import { UserProps } from "@/lib/types"
 import { getSession } from "@/utils/CacheSession"
 import estimateReadingTime from "@/utils/estimatedReadingTime"
-import { POST_BADGES } from "@/lib/badges"
 
 export const createPost = authenticatedAction
     .schema(z.object({
@@ -26,6 +25,7 @@ export const createPost = authenticatedAction
             const userIsContributor = user.role === "approved contributor"
             const userNumberPosts = await prisma.post.count({ where: { authorId: userId, published: true } })
             const slug = generateSlug(title)
+
 
             // Vérification de l'existence du slug
             const existingPost = await prisma.post.findUnique({ where: { slug } })
