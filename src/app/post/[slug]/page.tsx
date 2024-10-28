@@ -7,6 +7,7 @@ import { PostContent } from "@/features/postInformations/components/PostContent"
 import { PostAuthor } from "@/features/postInformations/components/PostAuthor"
 import { NewsLetter } from "@/features/postInformations/components/NewsLetter"
 import { getPost } from "@/features/postInformations/server/getPost"
+import { generateMetadata } from "@/lib/metadata"
 
 interface PostSlugPageProps {
     params: Promise<{
@@ -14,20 +15,9 @@ interface PostSlugPageProps {
     }>
 }
 
-export async function generateMetadata({ params }: PostSlugPageProps): Promise<Metadata> {
-    const { slug } = await params
-    const post = await getPost(decodeURIComponent(slug))
-    if (!post) return { title: 'Post Not Found' }
-  
-    return {
-      title: post.title,
-      description: post.description,
-      openGraph: {
-        images: [{ url: post.imageUrl || "" }],
-      },
-    }
-  }
-
+export async function generateMetadataForPost({ params }: PostSlugPageProps): Promise<Metadata> {
+    return await generateMetadata({ params })
+}
 
 const PostSlugPage = async ({ params }: PostSlugPageProps) => {
   const { slug } = await params
